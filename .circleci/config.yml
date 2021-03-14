@@ -15,13 +15,13 @@ jobs:
                     ./gradlew build
       - run:
           name: Run UnitTest
-          command: ./gradlew testDebugUnitTest --tests com.basim.bitcoinstats.UnitTest
+          command: ./gradlew test
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;android-16;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-16;default;armeabi-v7a"
       - run:
           name: Launch emulator
-          command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && emulator64-arm -avd test -noaudio -no-boot-anim -no-window -accel auto -verbose
+          command: export LD_LIBRARY_PATH=${ANDROID_HOME}/emulator/lib64:${ANDROID_HOME}/emulator/lib64/qt/lib && -avd test -noaudio -no-boot-anim -no-window -accel auto -verbose
           background: true
       - run:
           name: Wait emulator
@@ -33,7 +33,7 @@ jobs:
                   adb shell input keyevent 82
       - run:
           name: Run Instrumenation Tests
-          command: ./gradlew testDebugUnitTest --tests com.basim.bitcoinstats.InstrumentationTests
+          command: ./gradlew connectedAndroidTest
       - run:
           name: Run EspressoTests
           command: ./gradlew connectedDemoDebugAndroidTest
