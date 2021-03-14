@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bitcoin Stats</string>
+    <string name="loading_text">Please wait while we get the details for you</string>
+    <string name="network_error">Oops! Please check your network connection</string>
+    <string name="retry">Retry</string>
+    <string name="span">6 Months</string>
+</resources>
