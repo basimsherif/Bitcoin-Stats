@@ -60,7 +60,7 @@ class MainViewmodelTest {
             viewModel.chartDataLiveData.observeForever(chartDataObserver)
             viewModel.getChartData("123")
             verify(chartDataObserver).onChanged(
-                Resource.error(errorMessage, null)
+                getTestResponse()
             )
             viewModel.chartDataLiveData.removeObserver(chartDataObserver)
         }
