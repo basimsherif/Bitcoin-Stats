@@ -15,5 +15,5 @@ jobs:
                     ./gradlew build
       - run:
           name: Run UnitTest
-          command: ./gradlew testDebugUnitTest --tests com.basim.bitcoinstats.UnitTest
+          command: ./gradlew testDemoDebugUnitTest
 
