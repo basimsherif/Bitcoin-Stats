@@ -31,7 +31,5 @@ class UnitTest {
                     && chartList[2].name == "Market Capitalization"
                     && chartList[2].iconId == R.drawable.dollar
         )
-
-        assertTrue(false)
     }
 }
