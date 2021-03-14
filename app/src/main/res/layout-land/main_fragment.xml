@@ -22,15 +22,15 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/chartsRecyclerView"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:paddingStart="@dimen/margin_24"
             android:paddingTop="@dimen/margin_16"
             android:paddingBottom="@dimen/margin_16"
             app:adapter="@{homeViewModel.getChartAdapter()}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,17 +50,6 @@
             android:theme="@style/TitleText"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/chartTitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="@dimen/margin_16"
-            android:text="Market price in USD"
-            android:theme="@style/TitleText"
-            app:layout_constraintStart_toStartOf="@+id/chartsRecyclerView"
-            app:layout_constraintTop_toBottomOf="@+id/chartsRecyclerView" />
 
         <TextView
             android:id="@+id/chartDescText"
@@ -90,17 +79,26 @@
             app:layout_constraintEnd_toEndOf="@+id/chartDescText"
             app:layout_constraintTop_toBottomOf="@+id/chartDescText" />
 
+        <TextView
+            android:id="@+id/chartTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Market price in USD"
+            android:theme="@style/TitleText"
+            app:layout_constraintStart_toEndOf="@+id/chartsRecyclerView"
+            app:layout_constraintTop_toTopOf="@+id/chartsRecyclerView" />
+
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spanText">
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/chartsRecyclerView"
+            app:layout_constraintTop_toBottomOf="@+id/chartDescText"
+            app:layout_constraintVertical_bias="0.0">
 
         </com.github.mikephil.charting.charts.LineChart>
 
@@ -112,7 +110,7 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/chartsRecyclerView"
             app:layout_constraintTop_toBottomOf="@+id/chartDescText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
