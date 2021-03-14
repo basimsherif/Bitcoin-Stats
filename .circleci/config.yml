@@ -15,7 +15,7 @@ jobs:
                     ./gradlew build
       - run:
           name: Run UnitTest
-          command: ./gradlew testDemoDebugUnitTest
+          command: ./gradlew testDebugUnitTest --tests com.basim.bitcoinstats.UnitTest
       - run:
           name: Setup emulator
           command: sdkmanager "system-images;android-16;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-16;default;armeabi-v7a"
@@ -31,6 +31,9 @@ jobs:
                   # unlock the emulator screen
                   sleep 30
                   adb shell input keyevent 82
+      - run:
+          name: Run Instrumenation Tests
+          command: ./gradlew testDebugUnitTest --tests com.basim.bitcoinstats.InstrumentationTests
       - run:
           name: Run EspressoTests
           command: ./gradlew connectedDemoDebugAndroidTest
