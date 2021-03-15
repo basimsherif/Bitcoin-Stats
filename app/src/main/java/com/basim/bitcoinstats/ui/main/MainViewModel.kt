@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.basim.bitcoinstats.data.model.BaseResponse
 import com.basim.bitcoinstats.data.model.Chart
 import com.basim.bitcoinstats.data.repository.Repository
-import com.basim.bitcoinstats.utils.CountingIdlingResource
 import com.basim.bitcoinstats.utils.Resource
 import kotlinx.coroutines.launch
 
@@ -18,7 +17,7 @@ import kotlinx.coroutines.launch
 class MainViewModel @ViewModelInject constructor(
     private val repository: Repository
 ) : ViewModel() {
-    val chartAdapter: ChartAdapter = ChartAdapter()
+    var chartAdapter: ChartAdapter = ChartAdapter()
     private val _chartsLiveData = repository.getAllCharts()
     val chartsLiveData: LiveData<List<Chart>> = _chartsLiveData
     private val _selectedChartLiveData = MutableLiveData<Chart>()

@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.basim.bitcoinstats.R
 import com.basim.bitcoinstats.data.model.BaseResponse
 import com.basim.bitcoinstats.data.model.Chart
@@ -36,9 +35,6 @@ class MainFragment : Fragment(R.layout.main_fragment), OnListItemClickListener {
         binding.homeViewModel = viewModel
         binding.homeFragment = this
         viewModel.chartAdapter.onClick = this
-        val mLayoutManager = LinearLayoutManager(requireContext())
-        mLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        chartsRecyclerView.layoutManager = mLayoutManager
         observeData()
     }
 

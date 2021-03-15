@@ -5,4 +5,5 @@ package com.basim.bitcoinstats.utils
  */
 object Constants {
     const val API_URL = "https://api.blockchain.info/charts/"
+    const val DATABASE_NAME = "bitcoinstats_database"
 }

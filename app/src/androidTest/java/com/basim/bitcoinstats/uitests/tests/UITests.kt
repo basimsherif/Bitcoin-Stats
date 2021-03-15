@@ -8,17 +8,16 @@ import com.basim.bitcoinstats.MainActivity
 import com.basim.bitcoinstats.uitests.pages.HomePage
 import com.basim.bitcoinstats.utils.CountingIdlingResource
 import com.basim.bitcoinstats.utils.Utils
-import org.junit.After
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
+import org.junit.*
 import org.junit.rules.TestName
 import org.junit.runner.RunWith
+import org.junit.runners.MethodSorters
 
 
 /**
  * UI Automation test cases to verify major UI flows
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 @RunWith(AndroidJUnit4::class)
 class UITests {
 
@@ -71,8 +70,8 @@ class UITests {
     @Test
     fun verifyOfflineScenario(){
         //Turn off the WIFI
-        if(currentTestName.methodName == "verifyOfflineScenario")
-            InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc wifi disable")
+        InstrumentationRegistry.getInstrumentation().uiAutomation.executeShellCommand("svc wifi disable")
+        Thread.sleep(1000)
         homePage.tapRecyclerViewItem(1)
         homePage.verifyErrorSnackBar()
     }
