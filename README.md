@@ -39,3 +39,7 @@
 ### More Testing Strategy:
 
 * Need to mock the API and add more test cases to test the data displayed in Chart
+
+### CI/CD Integration
+
+* Project is deployed to Circle CI to automate build and to run unit tests
