@@ -1,9 +1,8 @@
 package com.basim.bitcoinstats
 
 import com.basim.bitcoinstats.utils.Utils
+import org.junit.Assert.assertTrue
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).

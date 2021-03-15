@@ -7,6 +7,9 @@ import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
 
+/**
+ * A custom rule for Coroutine
+ */
 @ExperimentalCoroutinesApi
 class TestCoroutineRule : TestRule {
 
@@ -18,9 +21,7 @@ class TestCoroutineRule : TestRule {
         @Throws(Throwable::class)
         override fun evaluate() {
             Dispatchers.setMain(testCoroutineDispatcher)
-
             base.evaluate()
-
             Dispatchers.resetMain()
             testCoroutineScope.cleanupTestCoroutines()
         }
