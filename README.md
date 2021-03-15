@@ -21,12 +21,18 @@
 * A dedicated layout for landscape
 * Animated loading using Lottie library
 
+### Code Quality
+
+* SOLID and clean code principles are followed
+* Lint check is performed and cleared the issues
+* Proper Unit tests and Instrumentation tests are added and gradle task for generating unified jacoco code coverage also added
+
 ### Testing Architecture:
 
 * Unit test cases are developed using JUnit
 * Viewmodel and Livedata are unit tested using Mockito
 * Instrumentation test cases are added for testing Room Database
-* UI Automation test cases are added using Espresso and Page Object Model
+* UI Automation test cases are added using Espresso and followed Page Object Model
 * Counting Idling resource is used to wait for asyn operation when running Espresso tests
 
 

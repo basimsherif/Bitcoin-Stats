@@ -5,13 +5,13 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.basim.bitcoinstats.data.model.Chart
+import com.basim.bitcoinstats.utils.Constants.DATABASE_NAME
 
 /**
  * Database class for ROOM
  */
 @Database(entities = [Chart::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-
     abstract fun chartDao(): ChartDao
 
     companion object {
@@ -25,10 +25,11 @@ abstract class AppDatabase : RoomDatabase() {
                 }
             }
 
-        private fun buildDatabase(appContext: Context) =
-            Room.databaseBuilder(appContext, AppDatabase::class.java, "bitcoinstats_database")
+        private fun buildDatabase(appContext: Context): AppDatabase {
+            return Room.databaseBuilder(appContext, AppDatabase::class.java, DATABASE_NAME)
                 .fallbackToDestructiveMigration()
                 .build()
+        }
     }
 
 }
